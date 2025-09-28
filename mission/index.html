@@ -4,13 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="BYU-Idaho Mission Statement">
-  <meta name="author" content="Your Name">
+  <meta name="author" content="Jaxon Becker">
   <title>BYU-Idaho Mission Statement</title>
-  <link rel="stylesheet" href="style3.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Theme Selector -->
+  <label for="theme">Theme:</label>
+  <select id="theme">
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
+
   <header>
-    <img src="https://www.byui.edu/images/service-sites/ces-logo.png" alt="BYU-Idaho Logo" class="logo">
+    <img id="logo" src="images/byui-blue.png" alt="BYU-Idaho Logo" class="logo">
     <h1>Brigham Young University - Idaho</h1>
   </header>
 
@@ -35,5 +42,7 @@
   <footer>
     <p>&copy; 2025 Brigham Young University - Idaho</p>
   </footer>
+
+  <script src="mission.js" defer></script>
 </body>
 </html>
