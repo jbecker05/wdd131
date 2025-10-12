@@ -1,39 +1,55 @@
 /* Mobile first */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+
+/* Utility */
+.hide { display: none; }
+
+/* Reset / base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   font-family: Arial, sans-serif;
   line-height: 1.5;
 }
 
+/* Header and nav */
 header {
   background: #333;
   color: white;
   padding: 1rem;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid #222;
 }
 
 nav ul {
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  padding: 0;
+  margin: 0;
 }
 
 nav a {
   color: white;
   text-decoration: none;
   padding: 0.5rem;
+  display: block;
 }
 
 nav a:hover {
   background: #555;
   border-radius: 5px;
+}
+
+/* Menu button */
+#menuButton {
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  color: #111;
+  padding: .5rem .75rem;
+  font-size: 1rem;
+  border-radius: .25rem;
+  cursor: pointer;
 }
 
 /* Gallery grid */
@@ -49,15 +65,46 @@ nav a:hover {
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 8px;
+  display: block;
+  cursor: pointer;
+}
+
+/* Modal viewer */
+dialog#viewer {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 10;
+}
+dialog#viewer::backdrop { background: rgba(0,0,0,0.6); }
+
+#viewer .viewer-content { position: relative; }
+
+#viewer img {
+  display: block;
+  width: 90%;
+  max-height: 100%;
+  margin: 20vh auto;
+  border-radius: .25rem;
+}
+
+#viewer .close-viewer {
+  position: absolute;
+  top: 20vh;
+  right: 5vw;
+  border: 0;
+  background: #fff;
+  padding: .25rem .5rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  border-radius: .25rem;
+  cursor: pointer;
 }
 
 /* Tablet */
 @media (min-width: 600px) {
-  nav ul {
-    flex-direction: row;
-    justify-content: center;
-  }
-
   .gallery {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -68,4 +115,11 @@ nav a:hover {
   .gallery {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* Large screens — keep this in sync with JS breakpoint (1000px) */
+@media (min-width: 1000px) {
+  #menuButton { display: none; }
+  nav ul { display: flex; gap: 1rem; }
+  nav a { padding: 0; }
 }
