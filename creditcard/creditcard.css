@@ -1,0 +1,130 @@
+
+
+:root {
+  --bg: #0f172a;           /* slate-900 */
+  --panel: #111827;        /* gray-900 */
+  --ink: #e5e7eb;          /* gray-200 */
+  --muted: #9ca3af;        /* gray-400 */
+  --accent: #f59e0b;       /* amber-500 */
+  --accent-ink: #1f2937;   /* gray-800 */
+  --error: #ef4444;        /* red-500 */
+  --ok: #10b981;           /* emerald-500 */
+  --ring: #60a5fa;         /* blue-400 */
+  --card-front: linear-gradient(135deg, #1f2937, #0b1220 70%);
+  --card-back: linear-gradient(135deg, #0b1220, #000 70%);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1000px 600px at 50% -100px, #1e293b 0%, var(--bg) 70%);
+  color: var(--ink);
+}
+
+/* Header */
+.site-header { padding: 1.25rem 1rem 0; }
+.site-header h1 { margin: .5rem 0 1rem; font-size: clamp(1.25rem, 1.2rem + 1vw, 1.75rem); }
+.breadcrumb { display: flex; align-items: center; gap: .5rem; color: var(--muted); font-size: .9rem; }
+.breadcrumb a { color: var(--ink); text-decoration: none; opacity: .8; }
+.breadcrumb a:hover { opacity: 1; text-decoration: underline; }
+
+/* Layout */
+main { padding: 1rem; }
+#creditCardForm.cc-layout {
+  max-width: 920px;
+  margin: 0 auto 2rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-areas:
+    "total"
+    "front"
+    "back"
+    "actions";
+}
+.total { grid-area: total; display: flex; justify-content: flex-end; align-items: baseline; gap: .5rem; }
+.total .label { color: var(--muted); font-weight: 600; }
+.total .amount { font-weight: 800; letter-spacing: .5px; font-size: 1.35rem; }
+
+.card { border-radius: 14px; padding: 1.1rem; position: relative; overflow: hidden; box-shadow: 0 12px 24px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.06); }
+.card-front { grid-area: front; background: var(--card-front); }
+.card-back  { grid-area: back;  background: var(--card-back); }
+
+/* Decorative orange mini card icon */
+.card-image { position: absolute; right: 14px; top: 14px; filter: drop-shadow(0 3px 6px rgba(0,0,0,.4)); }
+
+/* Back of card details */
+.mag-bar { height: 44px; background: #0b0b0b; margin: .25rem -.75rem 1.25rem; box-shadow: inset 0 0 10px rgba(255,255,255,.06); }
+
+/* Fields */
+.field { margin: .75rem 0; }
+.field label { display: block; font-size: .9rem; color: var(--muted); margin: 0 0 .35rem; }
+
+input, .exp-group, button {
+  font: inherit;
+}
+
+input[type="text"], input[type="tel"], input:not([type]), input[type="search"], input[type="number"] {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.06);
+  color: var(--ink);
+  padding: .85rem .9rem;
+  outline: none;
+  backdrop-filter: blur(4px);
+}
+
+input::placeholder { color: rgba(229,231,235,.55); }
+
+input:focus {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 30%, transparent);
+}
+
+/* Card number and name on same column widths */
+.cc-number input { letter-spacing: .08em; }
+
+/* Expiration group */
+.exp-group { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: .5rem; }
+.exp-group > span { color: var(--muted); padding: 0 .2rem; }
+.exp-group input { text-align: center; }
+
+/* CVC */
+.cc-cvc input { width: 7.5rem; }
+
+/* Actions */
+.actions { grid-area: actions; display: flex; justify-content: center; padding-top: .5rem; }
+button.submit {
+  appearance: none;
+  background: linear-gradient(180deg, var(--accent), #f97316);
+  color: var(--accent-ink);
+  border: none;
+  border-radius: 12px;
+  padding: .9rem 1.25rem;
+  font-weight: 800;
+  letter-spacing: .25px;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(245, 158, 11, .35);
+}
+button.submit:hover { filter: brightness(1.05); }
+button.submit:active { transform: translateY(1px); }
+button.submit:focus { outline: 3px solid color-mix(in oklab, var(--ring) 35%, transparent); outline-offset: 3px; }
+
+/* Footer */
+.site-footer { color: var(--muted); text-align: center; padding: 2rem 1rem 3rem; font-size: .9rem; }
+
+/* Larger screens: place front/back side-by-side with subtle offset */
+@media (min-width: 800px) {
+  #creditCardForm.cc-layout {
+    grid-template-areas:
+      "total total"
+      "front back"
+      ". actions";
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  .card-front { transform: translateY(10px); }
+  .card-back { transform: translateY(-10px); }
+}
