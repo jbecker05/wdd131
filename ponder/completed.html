@@ -1,0 +1,100 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order Complete</title>
+  <link rel="stylesheet" href="form-demo.css" />
+  <style>
+    .summary dt { font-weight: 700; margin-top: 10px; }
+    .summary dd { margin: 0 0 8px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Thank you! 🎉</h1>
+      <p>Your order has been received. A summary is below.</p>
+    </header>
+
+    <main>
+      <section aria-labelledby="orderSummaryHeading">
+        <h2 id="orderSummaryHeading">Order Summary</h2>
+        <dl class="summary">
+          <dt>Full Name</dt>
+          <dd id="sum-fullName">—</dd>
+
+          <dt>Email</dt>
+          <dd id="sum-email">—</dd>
+
+          <dt>Address</dt>
+          <dd id="sum-address">—</dd>
+
+          <dt>Payment Method</dt>
+          <dd id="sum-paymentMethod">—</dd>
+
+          <dt id="sum-cc-label" class="hide">Credit Card</dt>
+          <dd id="sum-creditCardNumber" class="hide">—</dd>
+
+          <dt id="sum-pp-label" class="hide">PayPal Username</dt>
+          <dd id="sum-paypalUsername" class="hide">—</dd>
+        </dl>
+      </section>
+
+      <p>
+        <a href="form-demo.html">← Back to form</a>
+      </p>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      // Read query params (default GET submission from the form)
+      const params = new URLSearchParams(window.location.search);
+      const get = (k) => params.get(k) || '';
+
+      // Helper to set text safely
+      function setText(id, value) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value || '—';
+      }
+
+      setText('sum-fullName', get('fullName'));
+      setText('sum-email', get('email'));
+      setText('sum-address', get('address'));
+
+      const method = get('paymentMethod');
+      setText('sum-paymentMethod', method ? (method === 'creditCard' ? 'Credit Card' : method === 'paypal' ? 'PayPal' : method) : '—');
+
+      const cc = get('creditCardNumber');
+      const pp = get('paypalUsername');
+
+      // Show only relevant payment detail
+      function show(id) {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('hide');
+      }
+
+      function maskCC(num) {
+        const s = (num || '').replace(/\s+/g, '');
+        if (s.length < 4) return s;
+        return '•••• •••• •••• ' + s.slice(-4);
+      }
+
+      if (method === 'creditCard' && cc) {
+        show('sum-cc-label');
+        show('sum-creditCardNumber');
+        setText('sum-creditCardNumber', maskCC(cc));
+      }
+
+      if (method === 'paypal' && pp) {
+        show('sum-pp-label');
+        show('sum-paypalUsername');
+        setText('sum-paypalUsername', pp);
+      }
+    })();
+  </script>
+</body>
+</html>
