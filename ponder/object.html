@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Objects – Course Sections</title>
+    <link rel="stylesheet" href="object.css" />
+    <script src="object.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1 id="courseName">Course Name</h1>
+        <h2 id="courseCode">Course Code</h2>
+      </header>
+
+      <section aria-labelledby="controls-heading">
+        <h3 id="controls-heading" class="visually-hidden">Enrollment Controls</h3>
+        <label for="sectionNumber">Section Number</label>
+        <input id="sectionNumber" name="sectionNumber" type="number" inputmode="numeric" />
+        <button id="enrollStudent" type="button">Enroll Student</button>
+        <button id="dropStudent" type="button">Drop Student</button>
+      </section>
+
+      <section aria-labelledby="students-heading">
+        <h3 id="students-heading">Students</h3>
+        <label for="studentName">Student Name</label>
+        <input id="studentName" name="studentName" type="text" placeholder="Enter student name" />
+        <button id="addStudent" type="button">Add Student</button>
+
+        <ul id="studentList">
+          <!-- student names will appear here -->
+        </ul>
+      </section>
+
+      <section aria-labelledby="sections-heading">
+        <h3 id="sections-heading">Sections</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Section #</th>
+              <th scope="col">Room #</th>
+              <th scope="col"># Enrolled</th>
+              <th scope="col">Days</th>
+              <th scope="col">Instructor</th>
+            </tr>
+          </thead>
+          <tbody id="sections"><!-- rows rendered by JS --></tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>
