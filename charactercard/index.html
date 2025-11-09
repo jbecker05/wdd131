@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Character Card</title>
+
+  <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Character Card">
+  <meta property="og:description" content="Interactive character card for WDD131.">
+  <meta property="og:url" content="https://jaxonbecker.github.io/wdd131/charactercard">
+  <meta property="og:image" content="images/social-preview.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Character Card">
+  <meta name="twitter:description" content="Interactive character card for WDD131.">
+  <meta name="twitter:image" content="images/social-preview.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico">
+
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="card">
+    <img src="https://andejuli.github.io/wdd131/character_card/snortleblat.webp" alt="Character Image" class="image">
+
+    <div class="name">Gater</div>
+
+    <div class="stats">
+      <p><strong>Class:</strong> <span id="class">Warrior</span></p>
+      <p><strong>Level:</strong> <span id="level">1</span></p>
+      <p><strong>Health:</strong> <span id="health">100</span></p>
+    </div>
+
+    <div class="buttons">
+      <button id="attackBtn">Attack</button>
+      <button id="levelBtn">Level Up</button>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
