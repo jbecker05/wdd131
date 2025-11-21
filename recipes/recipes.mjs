@@ -8,7 +8,7 @@ const recipes = [
 		tags: ['Waffles', 'Sweet Potato', 'Side'],
 		description: 'Savory waffles made with Sweet potato with a hint of Ginger',
 		image: './images/sweet-potato-waffle-md.jpg',
-		recipeIngredient: [
+		ingredients: [
 			'2 separated eggs',
 			'1/4 C Oil',
 			'1/4 tsp salt',
@@ -25,13 +25,13 @@ const recipes = [
 		],
 		name: 'Sweet Potato Waffles',
 		prepTime: '30 Min',
-		recipeInstructions: [
+		directions: [
 			'Add the egg yolks, oil, salt, cayenne, sugar, ginger, shallots, sweet potatoes (steam and mash before), and milk and mix well.',
 			'Next add the cornmeal, chives, and flour and baking powder',
 			'Whip the egg whites until stiff and fold in',
 			'Cook until golden brown in a waffle iron. Serve with butter and Wilted Greens or Honey.'
 		],
-		recipeYield: '6 waffles',
+		servings: '6 waffles',
 		rating: 4
 	},
 	{
@@ -44,7 +44,7 @@ const recipes = [
 		description:
 			'Delicious quick and easy creamy rice dish. The mustard, mushrooms, and lemon all blend together wonderfully',
 		image: './images/escalopes-de-poulet-a-la-creme.webp',
-		recipeIngredient: [
+		ingredients: [
 			'2 Chicken Tenders, Cubed',
 			'4 Mushrooms, Sliced',
 			'1/2 C Whipping Cream',
@@ -56,14 +56,14 @@ const recipes = [
 		],
 		name: 'Escalope de Poulet a la Creme with steamed green beans (Chicken with Cream)',
 		prepTime: '10 min',
-		recipeInstructions: [
+		directions: [
 			'Add 1 1/2 cups of water to a pan and bring to a boil.  Add the rice and reduce heat to low and simmer for 10-15 minutes or until all the moisture is gone.',
 			'Cube chicken then cook over medium high heat in a fry pan, add the mushrooms about halfway through. (10 minutes). ',
 			'Pour in cream, mustard and salt and pepper.  Stir.  On medium heat, simmer until it thickens (5 minutes)',
 			'While preparing sauce: wash the beans, then trim the ends and snap (or cut) into 2in lengths.  In a sauce pan with a colander add about 1 cup water and steam the beans (10-15 minutes)',
 			'Serve sauce over rice, with the Green beans on the side.'
 		],
-		recipeYield: '3 servings',
+		servings: '3 servings',
 		rating: 4.5
 	},
 	{
@@ -76,7 +76,7 @@ const recipes = [
 		description:
 			'Easy and delicious oven roasted potatoes that go great with almost anything.',
 		image: './images/roasted-potatoes.webp',
-		recipeIngredient: [
+		ingredients: [
 			'3-4 Medium Potatoes',
 			'1 Tbsp Olive oil',
 			'2 tsp Italian Seasoning',
@@ -86,14 +86,14 @@ const recipes = [
 		],
 		name: 'Oven Roasted potato slices',
 		prepTime: '10 min',
-		recipeInstructions: [
+		directions: [
 			'Preheat oven to 400 deg F',
 			'Wash and thinly slice the potatoes (I usually slice the potato in half lengthwise, then thinly slice the halves, again lengthwise)',
 			'Mix together the oil, salt, pepper, Italian seasoning, and hot sauce.',
 			'Toss the potatoes in the spice mixture to evenly coat then spead over a baking sheet',
 			'Bake for 30 min or until the desired level of crispyness is achieved.'
 		],
-		recipeYield: '',
+		servings: '',
 		rating: 4
 	},
 	{
@@ -106,7 +106,7 @@ const recipes = [
 		description:
 			'Black beans and tomatoes served over a bed of rice. Top with cheese and scoop up with tortilla chips for maximum enjoyment.',
 		image: './images/black-beans-and-rice.jpg',
-		recipeIngredient: [
+		ingredients: [
 			'1 Medium Onion, diced',
 			'2 Cloves Garlic, minced',
 			'1 Tbsp Olive oil',
@@ -119,14 +119,14 @@ const recipes = [
 		],
 		name: 'Black Beans and Rice',
 		prepTime: '10 min',
-		recipeInstructions: [
+		directions: [
 			'Add 4 cups water to a saucepan and bring to a boil. Add Rice, stir, cover, and reduce heat to low. Cook until moisture is gone. (20-30 minutes)',
 			'In another saucepan heat the oil and add the diced onion and garlic. Cook until tender.',
 			'Stir in the drained Black beans, Undrained tomatoes, and Cayenne.',
 			'Bring to a boil, then reduce heat and simmer uncovered for 15 min.',
 			'Serve over rice, topped with grated cheese and Tortilla chips.'
 		],
-		recipeYield: '4 servings',
+		servings: '4 servings',
 		rating: 3
 	},
 	{
@@ -139,7 +139,7 @@ const recipes = [
 		description:
 			'Quick and easy Chicken curry recipe made with easy to find ingredients.',
 		image: './images/chicken-curry.webp',
-		recipeIngredient: [
+		ingredients: [
 			'4 Slices Bacon',
 			'1 clove Garlic',
 			'2 Tbsp Flour',
@@ -155,7 +155,7 @@ const recipes = [
 		],
 		name: 'Chicken Curry',
 		prepTime: '10 min',
-		recipeInstructions: [
+		directions: [
 			'Add 3 cups water to a saucepan and bring to a boil. Add Rice, stir, cover, and reduce heat to low. Cook until moisture is gone. (15-20 minutes)',
 			'Cook bacon until crisp, drain reserving 1 Tbsp of bacon drippings, crumble bacon and set aside.',
 			'Cook Chicken and Cube.',
@@ -164,7 +164,7 @@ const recipes = [
 			'Before serving add crumbled bacon, chicken and stir in sour cream. Serve over rice.',
 			'Can add condiments if desired: fried potatoes, raisins, toasted coconut, chutney, diced peppers, almonds, cashews.'
 		],
-		recipeYield: '5 servings',
+		servings: '5 servings',
 		rating: 5
 	},
 	{
@@ -176,7 +176,7 @@ const recipes = [
 		tags: ['dessert'],
 		description: 'Delicious soft chocolate chip cookies with coconut.',
 		image: './images/chocolate-chip-cookies.jpg',
-		recipeIngredient: [
+		ingredients: [
 			'1 Lb butter, softened',
 			'1 C white sugar',
 			'3 Eggs',
@@ -190,7 +190,7 @@ const recipes = [
 		],
 		name: 'Chocolate Chip Cookies',
 		prepTime: '15 min',
-		recipeInstructions: [
+		directions: [
 			'Preheat oven to 350F.',
 			'Cream butter, white sugar, and eggs together.',
 			'Add brown sugar, salt, baking soda, and vanilla. Mix well.',
@@ -198,7 +198,7 @@ const recipes = [
 			'Place on baking sheet in rows of 1-1.5 inch balls of dough.',
 			'Bake for 11-12 minutes.'
 		],
-		recipeYield: '8 dozen',
+		servings: '8 dozen',
 		rating: 5
 	},
 	{
@@ -211,7 +211,7 @@ const recipes = [
 		description:
 			"This gooseberry cake with crumble is easy to follow, a bit tart and not too sweet. Made up of a cake base, filled with fresh gooseberries and vanilla cream and finished off with crumble that's flavored with vanilla. A must have recipe for gooseberry lovers!!",
 		image: './images/german-gooseberry-cake.jpg',
-		recipeIngredient: [
+		ingredients: [
 			'For the Cake Base:',
 			'180 g (1 ½ cups/ 6.3 oz) plain flour',
 			'2 medium eggs',
@@ -236,12 +236,12 @@ const recipes = [
 		],
 		name: 'Gooseberry cake with vanilla cream and crumble',
 		prepTime: '30 min',
-		recipeInstructions: [
+		directions: [
 			'Combine the flour, butter, sugar and eggs in a bowl and beat with a whisk until you have a smooth dough. Transfer the batter to a 26 cm(10 inch) spring-form (or cake tin with removable base) lined with a parchment paper at the bottom and greased on the side. Smooth with a spoon or spatula and set aside.',
 			"In the same bowl that you've used to make the cake base combine sugar, butter and flour. Using your hands mix all the ingredients together until small crumbles start to form. Set aside as well. Then preheat the oven to 180 ° C (356 °F), with both top and bottom heat.",
 			'Now in a small pot combine milk, sugar and cornstarch (corn flour). Keep stirring constantly until it starts to bubble and has thickened. Remove from the heat and let cool for 2 to 3 minutes. In the meantime scatter gooseberries over the base. Add sour cream to the cream that you previously made and whisk. Spread the vanilla cream on top of the gooseberries and sprinkle the crumble evenly over the top and bake for 45 minutes or until the crumbles are lightly golden brown. Remove from the oven and let cool for few minutes. Serve it with whipped cream and enjoy!'
 		],
-		recipeYield: '12 servings',
+		servings: '12 servings',
 		rating: 5
 	},
 	{
@@ -254,7 +254,7 @@ const recipes = [
 		description:
 			"This apple crisp recipe is a simple yet delicious fall dessert that's great served warm with vanilla ice cream.",
 		image: './images/apple-crisp.jpg',
-		recipeIngredient: [
+		ingredients: [
 			'10 C apples, cored and sliced',
 			'1 C white sugar',
 			'1 Tbsp white flour',
@@ -269,13 +269,13 @@ const recipes = [
 		],
 		name: 'Apple Crisp',
 		prepTime: '30 min',
-		recipeInstructions: [
+		directions: [
 			'Preheat the oven to 350 degrees F (175 degrees C).',
 			'Place sliced apples in a 9x13-inch baking dish. Mix white sugar, 1 tablespoon flour, and cinnamon together; sprinkle over apples. Pour water evenly over apples.',
 			'Combine oats, 1 cup flour, brown sugar, baking powder, and baking soda in a large bowl. Add melted butter and mix with a fork until crumbly; sprinkle evenly over apple mixture.',
 			'Bake in the preheated oven until top is golden brown and apples are bubbling around the edges, about 45 minutes.'
 		],
-		recipeYield: '12 servings',
+		servings: '12 servings',
 		rating: 4
 	}
 ]
