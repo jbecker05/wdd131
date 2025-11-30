@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sales Objection Trainer</title>
+  <!-- If your CSS is actually in styles/styles.css, change this href back -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Sales Objection Trainer</h1>
+    <h2>Practice handling real-world sales objections</h2>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="playbook.html">Objection Playbook</a>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Get confident handling sales objections</h1>
+        <p>
+          Practice real-world objections like “I have to talk to my wife” or
+          “It’s too expensive” using interactive flashcards. The more you
+          practice, the smoother your conversations will feel.
+        </p>
+        <a href="#cards" class="btn-primary">Start practicing</a>
+      </div>
+      <figure class="hero-image">
+        <img src="images/sales-team.jpg" alt="Salesperson talking with a customer" />
+      </figure>
+    </section>
+
+    <section class="intro">
+      <h2>How this site helps you sell more</h2>
+      <p>
+        Sales conversations can feel awkward when a customer throws out an
+        objection you’re not ready for. This site gives you a low-pressure way to
+        practice so you’re not guessing in front of a real customer.
+      </p>
+      <p>
+        You’ll work through common objections, see proven responses, and customize
+        them to match your style. Use the cards during your downtime at work or at
+        home to keep your skills sharp.
+      </p>
+    </section>
+
+    <section id="cards" class="card-trainer">
+      <header class="section-header">
+        <h2>Objection flashcards</h2>
+        <p>
+          Click a card to flip it. Use the buttons to track what you still need to
+          practice.
+        </p>
+      </header>
+
+      <div class="card-controls">
+        <button id="prevCard" type="button">Previous</button>
+        <button id="flipCard" type="button">Flip</button>
+        <button id="nextCard" type="button">Next</button>
+      </div>
+
+      <article id="card" class="card" aria-live="polite">
+        <div class="card-front">
+          <h3 class="card-label">Objection</h3>
+          <p class="card-text">I need to talk to my wife first.</p>
+        </div>
+        <div class="card-back" hidden>
+          <h3 class="card-label">Suggested response</h3>
+          <p class="card-text">
+            Totally understand. Many of my customers feel the same way. What
+            questions do you think your wife will ask so we can make sure you
+            leave here with all the details?
+          </p>
+        </div>
+      </article>
+
+      <div class="card-progress">
+        <button id="markEasy" type="button">Got it</button>
+        <button id="markReview" type="button">Needs work</button>
+        <p id="progressMessage">
+          Cards you’re confident with will be tracked here.
+        </p>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Ready for more scripts?</h2>
+      <p>
+        Visit the <a href="playbook.html">Objection Playbook</a> page for a full
+        list of scripts and talk tracks you can use on the sales floor.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="currentYear"></span> Sales Objection Trainer. Built for WDD 131.</p>
+  </footer>
+
+  <script type="module" src="scripts/main.mjs"></script>
+</body>
+</html>
