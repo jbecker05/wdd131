@@ -4,16 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sales Objection Trainer</title>
-  <!-- If your CSS is actually in styles/styles.css, change this href back -->
+  <meta
+    name="description"
+    content="Practice real-world sales objections using interactive flashcards and a written playbook so you feel more confident with customers."
+  />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
     <h1>Sales Objection Trainer</h1>
-    <h2>Practice handling real-world sales objections</h2>
+    <p>Practice handling real-world sales objections in a low-pressure way.</p>
   </header>
 
-  <nav>
+  <nav aria-label="Main navigation">
     <a href="index.html">Home</a>
     <a href="playbook.html">Objection Playbook</a>
   </nav>
@@ -21,7 +24,7 @@
   <main>
     <section class="hero">
       <div class="hero-text">
-        <h1>Get confident handling sales objections</h1>
+        <h2>Get confident handling sales objections</h2>
         <p>
           Practice real-world objections like “I have to talk to my wife” or
           “It’s too expensive” using interactive flashcards. The more you
@@ -30,7 +33,10 @@
         <a href="#cards" class="btn-primary">Start practicing</a>
       </div>
       <figure class="hero-image">
-        <img src="images/sales-team.jpg" alt="Salesperson talking with a customer" />
+        <img
+          src="images/sales-team.jpg"
+          alt="Salesperson talking with a customer"
+        />
       </figure>
     </section>
 
@@ -46,6 +52,11 @@
         them to match your style. Use the cards during your downtime at work or at
         home to keep your skills sharp.
       </p>
+      <ul>
+        <li>Practice common objections in a flashcard format</li>
+        <li>Read longer scripts and talk tracks in the playbook</li>
+        <li>Track which objections you’ve mastered and which need work</li>
+      </ul>
     </section>
 
     <section id="cards" class="card-trainer">
@@ -63,18 +74,25 @@
         <button id="nextCard" type="button">Next</button>
       </div>
 
-      <article id="card" class="card" aria-live="polite">
-        <div class="card-front">
-          <h3 class="card-label">Objection</h3>
-          <p class="card-text">I need to talk to my wife first.</p>
-        </div>
-        <div class="card-back" hidden>
-          <h3 class="card-label">Suggested response</h3>
-          <p class="card-text">
-            Totally understand. Many of my customers feel the same way. What
-            questions do you think your wife will ask so we can make sure you
-            leave here with all the details?
-          </p>
+      <article
+        id="card"
+        class="card"
+        aria-live="polite"
+        aria-label="Sales objection training card"
+      >
+        <div class="card-inner">
+          <div class="card-face card-front">
+            <h3 class="card-label">Objection</h3>
+            <p class="card-text">I need to talk to my wife first.</p>
+          </div>
+          <div class="card-face card-back">
+            <h3 class="card-label">Suggested response</h3>
+            <p class="card-text">
+              Totally understand. Many of my customers feel the same way. What
+              questions do you think your wife will ask so we can make sure you
+              leave here with all the details?
+            </p>
+          </div>
         </div>
       </article>
 
@@ -100,6 +118,6 @@
     <p>&copy; <span id="currentYear"></span> Sales Objection Trainer. Built for WDD 131.</p>
   </footer>
 
-  <script type="module" src="scripts/main.mjs"></script>
+  <script type="module" src="main.mjs"></script>
 </body>
 </html>

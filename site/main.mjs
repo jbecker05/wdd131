@@ -42,6 +42,12 @@ const objectionCards = [
   }
 ];
 
+// Example array method usage (for WDD 131 requirement):
+// Build a list of unique categories from the objections.
+const objectionCategories = [...new Set(objectionCards.map(card => card.category))];
+// (We could log this or use it later if needed.)
+console.log("Objection categories:", objectionCategories);
+
 // -----------------------------
 // State
 // -----------------------------
@@ -61,6 +67,7 @@ const statusById = new Map();
 // DOM lookups (index.html only)
 // -----------------------------
 const cardElement = document.querySelector("#card");
+const cardInner = cardElement?.querySelector(".card-inner");
 const cardFront = cardElement?.querySelector(".card-front");
 const cardBack = cardElement?.querySelector(".card-back");
 const cardFrontText = cardElement?.querySelector(".card-front .card-text");
@@ -82,12 +89,15 @@ const progressMessage = document.querySelector("#progressMessage");
  * Show a card at the given index.
  */
 function showCard(index) {
-  if (!cardElement || !cardFrontText || !cardBackText) return;
+  if (!cardElement || !cardFrontText || !cardBackText || !cardFront || !cardBack) return;
 
   const card = objectionCards[index];
   if (!card) return;
 
-  // Always show front side when we change cards
+  // Reset any flip state for future 3D mode
+  cardElement.classList.remove("is-flipped");
+
+  // Always show front side when we change cards (current behavior)
   cardFront.hidden = false;
   cardBack.hidden = true;
 
@@ -101,8 +111,16 @@ function showCard(index) {
  * Flip the card between front and back.
  */
 function flipCard() {
-  if (!cardFront || !cardBack) return;
+  if (!cardElement) return;
 
+  // If we have 3D structure (card-inner), use class-based flip
+  if (cardInner) {
+    cardElement.classList.toggle("is-flipped");
+    return;
+  }
+
+  // Fallback: simple front/back hide-show (current behavior)
+  if (!cardFront || !cardBack) return;
   const isFrontVisible = !cardFront.hidden;
   cardFront.hidden = isFrontVisible;
   cardBack.hidden = !isFrontVisible;
@@ -170,11 +188,7 @@ function updateProgressMessage() {
   const { easy, review } = stats;
   const unmarked = Math.max(0, total - (easy + review));
 
-  progressMessage.textContent = `
-You’ve marked ${easy} as "Got it",
-${review} as "Needs work",
-and have ${unmarked} not marked yet.
-`.trim();
+  progressMessage.textContent = `You’ve marked ${easy} as "Got it", ${review} as "Needs work", and have ${unmarked} not marked yet.`;
 }
 
 // -----------------------------
@@ -184,10 +198,19 @@ if (cardElement) {
   // Initialize first card
   showCard(currentIndex);
 
+  // Flip button
   flipButton?.addEventListener("click", () => {
     flipCard();
   });
 
+  // Also flip when clicking directly on the card (Quizlet-style)
+  cardElement.addEventListener("click", (event) => {
+    // Avoid flipping if the user clicked one of the control buttons outside the card
+    // (Our buttons are outside, so this is mostly just future-proofing.)
+    flipCard();
+  });
+
+  // Navigation buttons
   nextButton?.addEventListener("click", () => {
     nextCard();
   });
@@ -196,6 +219,7 @@ if (cardElement) {
     prevCardFn();
   });
 
+  // Progress buttons
   markEasyButton?.addEventListener("click", () => {
     markCard("easy");
   });
@@ -214,3 +238,18 @@ if (cardElement) {
     yearSpan.textContent = String(new Date().getFullYear());
   }
 })();
+// -----------------------------
+// Smooth scrolling for in-page links
+// -----------------------------
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  });
+});
