@@ -39,6 +39,41 @@ const objectionCards = [
     objection: "Can I come back later?",
     response:
       "You’re always welcome to come back. The only reason people usually handle it now is because they’re already here and it saves them an extra trip. If we could make this quick and simple, would there be any other reason not to get it taken care of today?"
+  },
+  {
+    id: 6,
+    category: "Money & price",
+    objection: "I can probably find it cheaper online.",
+    response:
+      "You might be able to, and I always respect people who want to save money. The main difference here is that you’re getting it set up correctly today, with someone you can come back to if there’s an issue. If the price were close and the service was better here, would it still make sense to go online?"
+  },
+  {
+    id: 7,
+    category: "Need & fit",
+    objection: "I’m really careful with my phone, I don’t break them.",
+    response:
+      "That’s awesome, and it already puts you ahead of most people. The plan isn’t really for what you expect to happen—it’s for the one time something random happens, like a drop in the parking lot or a kid grabbing it. If that worst-case scenario did happen once in the next couple of years, would you rather pay out of pocket or have it covered?"
+  },
+  {
+    id: 8,
+    category: "Need & fit",
+    objection: "I’ve never needed this kind of thing before.",
+    response:
+      "Totally fair. A lot of people who get this have never needed it before either—they just like knowing that if this is the one time they do, they’re covered. If this turns out to be the one device that does have an issue, would you want that backup in place or not really?"
+  },
+  {
+    id: 9,
+    category: "Trust & timing",
+    objection: "I don’t like making decisions on the spot.",
+    response:
+      "I get that. Nobody wants to feel rushed. My goal isn’t to pressure you, it’s to make sure you’ve got all the info so whatever decision you make feels solid. What would you need to know right now to feel comfortable either saying yes or no today?"
+  },
+  {
+    id: 10,
+    category: "Trust & timing",
+    objection: "Can you just give me a brochure or something?",
+    response:
+      "I can definitely give you info to take with you. The tricky part is most people don’t come back, even when they mean to, and then if something happens they wish they’d just handled it while they were here. If we walked through the key points together now and answered your questions, would that help you decide today instead of pushing it off?"
   }
 ];
 
@@ -80,24 +115,21 @@ const flipButton = document.querySelector("#flipCard");
 const markEasyButton = document.querySelector("#markEasy");
 const markReviewButton = document.querySelector("#markReview");
 const progressMessage = document.querySelector("#progressMessage");
+const themeToggle = document.querySelector("#themeToggle");
 
 // -----------------------------
 // Helpers
 // -----------------------------
 
-/**
- * Show a card at the given index.
- */
 function showCard(index) {
   if (!cardElement || !cardFrontText || !cardBackText || !cardFront || !cardBack) return;
 
   const card = objectionCards[index];
   if (!card) return;
 
-  // Reset any flip state for future 3D mode
   cardElement.classList.remove("is-flipped");
+  cardElement.classList.remove("slide-next", "slide-prev");
 
-  // Always show front side when we change cards (current behavior)
   cardFront.hidden = false;
   cardBack.hidden = true;
 
@@ -105,6 +137,15 @@ function showCard(index) {
   cardBackText.textContent = card.response;
 
   updateProgressMessage();
+}
+
+function triggerSlideAnimation(direction) {
+  if (!cardElement) return;
+
+  const className = direction === "prev" ? "slide-prev" : "slide-next";
+  cardElement.classList.remove("slide-next", "slide-prev");
+  void cardElement.offsetWidth;
+  cardElement.classList.add(className);
 }
 
 /**
@@ -132,6 +173,7 @@ function flipCard() {
 function nextCard() {
   currentIndex = (currentIndex + 1) % objectionCards.length;
   showCard(currentIndex);
+  triggerSlideAnimation("next");
 }
 
 /**
@@ -141,6 +183,7 @@ function prevCardFn() {
   currentIndex =
     (currentIndex - 1 + objectionCards.length) % objectionCards.length;
   showCard(currentIndex);
+  triggerSlideAnimation("prev");
 }
 
 /**
@@ -238,6 +281,47 @@ if (cardElement) {
     yearSpan.textContent = String(new Date().getFullYear());
   }
 })();
+// -----------------------------
+// Theme toggle (light / dark)
+// -----------------------------
+const THEME_KEY = "salesTrainerTheme";
+
+function applyTheme(theme) {
+  if (theme === "dark") {
+    document.body.classList.add("dark-mode");
+  } else {
+    document.body.classList.remove("dark-mode");
+  }
+}
+
+// Initialize theme from localStorage, default to light
+const savedTheme = localStorage.getItem(THEME_KEY);
+if (savedTheme === "dark" || savedTheme === "light") {
+  applyTheme(savedTheme);
+} else {
+  applyTheme("light");
+}
+
+if (themeToggle) {
+  const updateToggleUI = () => {
+    const isDark = document.body.classList.contains("dark-mode");
+    themeToggle.textContent = isDark ? "☀️" : "🌙";
+    themeToggle.setAttribute(
+      "aria-label",
+      isDark ? "Switch to light mode" : "Switch to dark mode"
+    );
+  };
+
+  updateToggleUI();
+
+  themeToggle.addEventListener("click", () => {
+    const isDarkNow = !document.body.classList.contains("dark-mode");
+    applyTheme(isDarkNow ? "dark" : "light");
+    localStorage.setItem(THEME_KEY, isDarkNow ? "dark" : "light");
+    updateToggleUI();
+  });
+}
+
 // -----------------------------
 // Smooth scrolling for in-page links
 // -----------------------------

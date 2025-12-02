@@ -28,6 +28,52 @@
   --border-subtle: #e5e7eb;
 }
 
+body.dark-mode {
+  --page-background: #020617;
+  --card-background: #020617;
+  --headline-color-on-white: #e5e7eb;
+  --headline-color-on-color: #f9fafb;
+  --paragraph-color-on-white: #cbd5f5;
+  --paragraph-color-on-color: #e5e7eb;
+  --nav-background-color: #020617;
+  --nav-link-color: #e5e7eb;
+  --nav-hover-link-color: #ffffff;
+  --nav-hover-background-color: rgba(148, 163, 184, 0.35);
+  --border-subtle: #1f2937;
+}
+
+body.dark-mode header {
+  background: linear-gradient(135deg, #020617, #0b1120);
+}
+
+
+body.dark-mode .intro,
+body.dark-mode .playbook-intro,
+body.dark-mode .playbook-section,
+body.dark-mode .playbook-summary {
+  background-color: #020617;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.85);
+}
+
+body.dark-mode .playbook-card {
+  background-color: #020617;
+  border-color: #1f2937;
+}
+
+body.dark-mode .card {
+  background-color: #020617;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.9);
+}
+
+body.dark-mode .cta {
+  background-color: #020617;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.9);
+}
+
+body.dark-mode footer {
+  color: #9ca3af;
+}
+
 /* --------------------
    Global layout & type
    -------------------- */
@@ -112,6 +158,19 @@ header {
   box-shadow: 0 2px 6px rgba(15, 23, 42, 0.25);
 }
 
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-text {
+  text-align: left;
+}
+
 header h1 {
   margin-bottom: 0.25rem;
   color: var(--headline-color-on-color);
@@ -122,6 +181,28 @@ header p {
   margin: 0;
   color: var(--paragraph-color-on-color);
   opacity: 0.9;
+}
+
+.theme-toggle {
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(15, 23, 42, 0.4);
+  color: #e5e7eb;
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, transform 0.1s ease,
+    box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(15, 23, 42, 0.7);
+  border-color: rgba(148, 163, 184, 0.9);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.5);
+  transform: translateY(-1px);
 }
 
 nav {
@@ -287,13 +368,13 @@ nav a:hover {
   cursor: pointer;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
   perspective: 1000px;       /* give the 3D flip depth */
-  min-height: 160px;         /* ensure the box encloses the text */
+  min-height: 220px;         /* ensure the box encloses the text */
 }
 
 .card-inner {
   position: relative;
   width: 100%;
-  min-height: 120px;          /* let the content define height */
+  min-height: 180px;          /* let the content define height */
   transform-style: preserve-3d;
   transition: transform 0.4s ease;
 }
@@ -315,6 +396,36 @@ nav a:hover {
   transform: rotateY(180deg);
 }
 
+.card.slide-next {
+  animation: slide-next 0.25s ease;
+}
+
+.card.slide-prev {
+  animation: slide-prev 0.25s ease;
+}
+
+@keyframes slide-next {
+  from {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-prev {
+  from {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .card:hover {
   transform: translateY(-3px);
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.22);
@@ -322,7 +433,7 @@ nav a:hover {
 
 .card-front,
 .card-back {
-  min-height: 120px;
+  min-height: 180px;
 }
 
 .card-label {
@@ -463,5 +574,10 @@ footer {
 
   .hero-image {
     order: -1;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

@@ -12,8 +12,20 @@
 </head>
 <body>
   <header>
-    <h1>Sales Objection Trainer</h1>
-    <h2>Objection Playbook</h2>
+    <div class="header-inner">
+      <div class="header-text">
+        <h1>Sales Objection Trainer</h1>
+        <h2>Objection Playbook</h2>
+      </div>
+      <button
+        id="themeToggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+      >
+        🌙
+      </button>
+    </div>
   </header>
   <nav aria-label="Main navigation">
     <a href="index.html">Home</a>
@@ -112,6 +124,27 @@
           <li>“What would make this a ‘no-brainer’ for you?”</li>
         </ul>
       </article>
+
+      <article class="playbook-card">
+        <h3>“I can probably find it cheaper online.”</h3>
+        <p class="label">Goal:</p>
+        <p>Respect their desire to save money while highlighting the value of in-person service.</p>
+
+        <p class="label">Sample response:</p>
+        <p>
+          <strong>You:</strong> You might be able to, and I always respect people who want to save money.
+          The main difference here is that you’re getting it set up correctly today with someone you can
+          come back to if there’s an issue.
+          <br><br>
+          If the price were close and the service was better here, would it still make sense to go online?
+        </p>
+
+        <p class="label">Follow-up questions:</p>
+        <ul>
+          <li>“How important is it to have someone local you can come back to?”</li>
+          <li>“If the total cost ends up about the same, which feels like the better experience for you?”</li>
+        </ul>
+      </article>
     </section>
 
     <section class="playbook-section">
@@ -160,6 +193,96 @@
           <li>“What would make it easier to move forward today?”</li>
         </ul>
       </article>
+
+      <article class="playbook-card">
+        <h3>“I don’t like making decisions on the spot.”</h3>
+        <p class="label">Goal:</p>
+        <p>Remove pressure and help them work through the real concern calmly.</p>
+
+        <p class="label">Sample response:</p>
+        <p>
+          <strong>You:</strong> I get that. Nobody wants to feel rushed.
+          My goal isn’t to pressure you, it’s to make sure you’ve got all the info so whatever
+          decision you make feels solid.
+          <br><br>
+          What would you need to know right now to feel comfortable either saying yes or no today?
+        </p>
+
+        <p class="label">Follow-up questions:</p>
+        <ul>
+          <li>“Is there one part of this that you’re still unsure about?”</li>
+          <li>“Would it help if we quickly compared this to what you’ve done in the past?”</li>
+        </ul>
+      </article>
+
+      <article class="playbook-card">
+        <h3>“Can you just give me a brochure or something?”</h3>
+        <p class="label">Goal:</p>
+        <p>Gently bring the decision back to the present while still offering information.</p>
+
+        <p class="label">Sample response:</p>
+        <p>
+          <strong>You:</strong> I can definitely give you info to take with you.
+          The tricky part is most people don’t come back, even when they mean to, and then if
+          something happens they wish they’d just handled it while they were here.
+          <br><br>
+          If we walked through the key points together now and answered your questions, would that
+          help you decide today instead of pushing it off?
+        </p>
+
+        <p class="label">Follow-up questions:</p>
+        <ul>
+          <li>“Is there one main thing you’d want that brochure to explain?”</li>
+          <li>“If we covered that together now, would it help you feel more confident deciding today?”</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="playbook-section">
+      <h2>Need & fit objections</h2>
+
+      <article class="playbook-card">
+        <h3>“I’m really careful with my phone, I don’t break them.”</h3>
+        <p class="label">Goal:</p>
+        <p>Validate their good habits while pointing out that accidents still happen.</p>
+
+        <p class="label">Sample response:</p>
+        <p>
+          <strong>You:</strong> That’s awesome, and it already puts you ahead of most people.
+          The plan isn’t really for what you expect to happen—it’s for the one time something random
+          happens, like a drop in the parking lot or a kid grabbing it.
+          <br><br>
+          If that worst-case scenario did happen once in the next couple of years, would you rather pay
+          out of pocket or have it covered?
+        </p>
+
+        <p class="label">Follow-up questions:</p>
+        <ul>
+          <li>“What’s the most important thing on your phone you wouldn’t want to be without?”</li>
+          <li>“How would it impact you if you had to go a few days without it?”</li>
+        </ul>
+      </article>
+
+      <article class="playbook-card">
+        <h3>“I’ve never needed this kind of thing before.”</h3>
+        <p class="label">Goal:</p>
+        <p>Show that past luck doesn’t guarantee future results and reframe the plan as backup.</p>
+
+        <p class="label">Sample response:</p>
+        <p>
+          <strong>You:</strong> Totally fair. A lot of people who get this have never needed it before either—
+          they just like knowing that if this is the one time they do, they’re covered.
+          <br><br>
+          If this turns out to be the one device that does have an issue, would you want that backup in place
+          or not really?
+        </p>
+
+        <p class="label">Follow-up questions:</p>
+        <ul>
+          <li>“Have you ever known someone who thought the same thing and then had something happen?”</li>
+          <li>“Would it give you peace of mind to know this one is finally protected?”</li>
+        </ul>
+      </article>
     </section>
 
     <section class="playbook-summary">
@@ -181,6 +304,6 @@
     <p>&copy; <span id="currentYear"></span> Sales Objection Trainer. Built for WDD 131.</p>
   </footer>
 
-  <script type="module" src="scripts/main.mjs"></script>
+  <script type="module" src="main.mjs"></script>
 </body>
 </html>
